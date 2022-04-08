@@ -26,7 +26,7 @@ class JD_Spider:
         except Exception as e:
             print('Not found this item', e)
         # 向下翻页
-        browser.execute_script(js)
+        self.browser.execute_script(js)
         time.sleep(1.5)
 
         html = self.browser.page_source  # 获取html
