@@ -87,13 +87,17 @@ if __name__ == '__main__':
     js = 'var q=document.documentElement.scrollTop=100000'
 
     with open(query_file_path, 'r') as query_file:
+        # 需要查询的数据行数目
         count = 1000
-        interpret = 0 # 设置中断的点，这里只是初始化，看96行
+        # 初始化中断点的地址
+        interpret = 0
+        # 停止节点
+        stop_flag = 30
         while count > 0:
             data = query_file.readline()
             count -= 1
             interpret += 1
-            if interpret <= 105:  # 举例表示前面105个正常不用管，继续运行下面的即可，可以灵活调试
+            if interpret <= 357:
                 pass
             else:
                 item_id, item_name = data.split('\t')
@@ -104,3 +108,6 @@ if __name__ == '__main__':
                 end_time = time.time()
                 print(int(end_time-start_time), 'seconds')
                 print("***Done***")
+                if count % stop_flag == 0:
+                    print("Take a rest man!")
+                    time.sleep(10)
