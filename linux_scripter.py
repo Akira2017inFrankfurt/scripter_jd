@@ -100,7 +100,7 @@ if __name__ == '__main__':
             if interpret <= 357:
                 pass
             else:
-                item_id, item_name = data.split('\t')
+                item_id, item_name = data.split('\t', 1)  # 防止名字中有\t影响命名
                 print('------解析第{}个query------'.format(str(item_id)))
                 start_time = time.time()
                 spider = JD_Spider(item_id, item_name, txt_name, browser, wait)
