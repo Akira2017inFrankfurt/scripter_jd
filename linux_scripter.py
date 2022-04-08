@@ -91,7 +91,7 @@ if __name__ == '__main__':
         count = 1000
         # 初始化中断点的地址
         interpret = 0
-        # 停止节点
+        # 停止节点, 每30个停止10秒，最后一行可以设置
         stop_flag = 30
         while count > 0:
             data = query_file.readline()
